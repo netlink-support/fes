@@ -35,6 +35,7 @@ function ChangeSortingOrder(order_type, order_by, div_id, limit, search_term, pa
 
 
 function changeStatus(table, unique_id, unique_id_value, div_id, order_type, order_by, limit, search_term, page_id, link) {
+    alert("reach");
     bootbox.confirm("Are you sure want to change status?", function(result) {
         if (result)
         {
@@ -632,6 +633,7 @@ function resetAdvanceFilters()
     var url = window.location.href.split("?")[0];
     window.location = url;
 }
+
 
 
 
