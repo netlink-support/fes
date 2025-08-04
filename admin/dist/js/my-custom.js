@@ -50,6 +50,22 @@ function changeStatus(table, unique_id, unique_id_value, div_id, order_type, ord
     });
 }
 
+function changePinToHomePageStatus(table, unique_id, unique_id_value, div_id, order_type, order_by, limit, search_term, page_id, link) {
+    bootbox.confirm("Are you sure want to change status?", function(result) {
+        if (result)
+        {
+            xmlhttp = AjaxCustom2(div_id, order_type, order_by, limit, search_term, page_id, link);
+            xmlhttp.open("GET", "ajax/ajax_change_pin_to_home_page_status.php?table=" + table + '&unique_id=' + unique_id + '&unique_id_value=' + unique_id_value + "&order_type=" + order_type + "&order_by=" + order_by + "&limit=" + limit + "&search_term=" + search_term + "&page_id=" + page_id + "&link=" + link, true);
+            $('#ajax-loader').toggle();
+            xmlhttp.send();
+        }
+        else
+        {
+            return;
+        }
+    });
+}
+
 function AjaxDelete(table, unique_id, unique_id_value, div_id, order_type, order_by, limit, search_term, page_id, link) {
     bootbox.confirm("Are you sure want to delete?", function(result) {
         if (result)
@@ -616,6 +632,7 @@ function resetAdvanceFilters()
     var url = window.location.href.split("?")[0];
     window.location = url;
 }
+
 
 
 
